@@ -33,4 +33,4 @@ if [ $? != 0 ]; then
 fi
 
 docker run -dt --name ssserver-kcptun -p 6443:6443 -p 6500:6500/udp mritd/shadowsocks -m "ss-server" -s "-s 0.0.0.0 -p 6443 -m chacha20-ietf -k Passw0rd" -x -e "kcpserver" -k "-t 127.0.0.1:6443 -l :6500 -mode fast2"
-docker run -dt --name ssserver-obfs -p 8443:8443 -p 8500:8500/udp mritd/shadowsocks -m "ss-server" -s "-s 0.0.0.0 -p 8443 -m chacha20-ietf -k Passw0rd --plugin obfs-server --plugin-opts \"obfs=tls\""
+docker run -dt --name ssserver-obfs -p 8443:8443  mritd/shadowsocks -m "ss-server" -s "-s 0.0.0.0 -p 8443 -m chacha20-ietf -k Passw0rd --plugin obfs-server --plugin-opts obfs=tls"
